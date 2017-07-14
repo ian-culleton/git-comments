@@ -4,6 +4,7 @@
 var express = require('express');
 var router = express.Router();
 var request = require("request");
+const { URL } = require('url');
 
 
 /* get show form */
@@ -18,10 +19,24 @@ router.get('/', function(req, res, next) {
 /* post comments listing. */
 router.post('/:username?/:repoName?', function(req, res, next) {
   //console.log("Inside POST", req);
+  let repoUrl = req.body.repoUrl || '';
+  let username = '';
+  let repoName = '';
+  if(req.body.repoUrl) {
+    const myURL = new URL(req.body.repoUrl);
+    let myPaths = myURL.pathname.split('/');
+    console.log('username from path ' + myPaths[1]);
+    console.log('repo from path ' + myPaths[2]);
+    username = myPaths[1];
+    repoName = myPaths[2];
+  } else {
+    username = req.body.username;
+    repoName = req.body.repoName;
+  }
+
+
   let comments = '';
   let message='';
-  let username = req.body.username;
-  let repoName = req.body.repoName;
   let options = {
     method: 'GET',
     url: 'https://api.github.com/repos/' + username + '/' + repoName + '/comments',
@@ -38,10 +53,10 @@ router.post('/:username?/:repoName?', function(req, res, next) {
     //console.log(body);
     //console.log('typeof \n', typeof body)
     //res.send(body);
-    console.log('comments ', comments)
+    //console.log('comments ', comments)
     if(comments.length === 0) {
       console.log("Not Found");
-      message = 'No Comments Fdound';
+      message = 'No Comments Found';
     } else {
       let plural = comments.length > 1 ? 's':'';
       message = comments.length + ' comment' + plural + ' found';
@@ -52,7 +67,8 @@ router.post('/:username?/:repoName?', function(req, res, next) {
       title: 'Comments',
       comments: comments,
       username: username,
-      repoName: repoName
+      repoName: repoName,
+      repoUrl: repoUrl
     });
   });
 

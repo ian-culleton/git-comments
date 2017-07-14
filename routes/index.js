@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'GitHub Comments Lister',
     username: '',
-    repoName: ''
+    repoName: '',
+    repoUrl: ''
   });
 });
 
