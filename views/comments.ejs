@@ -1,29 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
-</head>
-<body>
+<% include header.ejs %>
 <p>Welcome to <%= title %></p>
-<div><form method="post" action="/comments">
-    <input type="text" name="username" id="username" value="<%= username %>">
-    <input type="text" name="repoName" id="repoName" value="<%= repoName %>">
-    <input type="submit">
-</form>
+<% include form.ejs%>
 </div>
 <div>
-    <% for(var i=0; i<commits.length; i++) {%>
-        <ul>
-            <li><%= commits[i].html_url %></li>
-            <li><%= commits[i].path %></li>
-            <li><%= commits[i].position %></li>
-            <li><%= commits[i].line %></li>
-            <li><%= commits[i].updated_at %></li>
-            <li><%= commits[i].body %></li>
+    <%= message %>
+    <% for(var i=0; i<comments.length; i++) {%>
+    <h3 class="mdc-list-group__subheader"><a href="<%= comments[i].html_url %>" target="_blank"><%= comments[i].id %></a></h3>
+        <ul class="mdc-list mdc-list--dense">
+            <li class="mdc-list-item">URL: <%= comments[i].html_url %></li>
+            <li class="mdc-list-item">PATH: <%= comments[i].path %></li>
+            <li class="mdc-list-item">Line/Position: <%= comments[i].line %>/<%= comments[i].position %></li>
+            <li class="mdc-list-item">Updated: <%= comments[i].updated_at %></li>
+            <li class="mdc-list-item">Comment: <%= comments[i].body %></li>
         </ul>
+    <hr class="mdc-list-divider">
     <% } %>
 </div>
-</body>
-</html>
+<% include footer.ejs%>

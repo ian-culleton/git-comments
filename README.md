@@ -2,6 +2,6 @@
 
 ## endpoints
 
-GET: /commits/:userName:/:reponame:
+GET: /comments/:userName:/:reponame:
 
-returns list of comments for commits on repo
+returns list of comments for comments on repo

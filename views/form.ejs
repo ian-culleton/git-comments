@@ -1,0 +1,26 @@
+<form method="post" action="/comments" id="commentForm">
+    <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+            <input id="username" name="username" type="text" class="mdc-textfield__input" value="<%= username %>">
+            <label for="username" class="mdc-textfield__label">
+                GitHub Org or User
+            </label>
+        </div>
+    </div>
+    <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+            <input id="repoName" name="repoName" type="text" class="mdc-textfield__input" value="<%= repoName %>">
+            <label for="repoName" class="mdc-textfield__label">
+                GitHub Repo Name
+            </label>
+        </div>
+    </div>
+    <button type="submit"
+            class="mdc-button
+                       mdc-button--raised
+                       mdc-button--primary
+                       mdc-ripple-surface"
+            data-mdc-auto-init="MDCRipple">
+        Find Comments
+    </button>
+</form>

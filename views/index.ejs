@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p><%= title %></p>
-    <form method="post" action="/comments">
-      <input type="text" name="username" id="username">
-      <input type="text" name="repoName" id="repoName">
-      <input type="submit">
-    </form>
-  </body>
-</html>
+<% include header.ejs%>
+    <h1 class="mdc-typography--display1"><%= title %></h1>
+<% include form.ejs%>
+<% include footer.ejs%>

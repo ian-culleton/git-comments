@@ -8,19 +8,18 @@ var request = require("request");
 
 /* get show form */
 router.get('/', function(req, res, next) {
-  // res.render('commits', {
-  //   title: 'Commits'
-  // });
+  console.log("inside GET");
   res.render('commentForm', {
     title: 'Comments'}
     );
   //res.send('hello')
 });
 
-/* post commits listing. */
+/* post comments listing. */
 router.post('/:username?/:repoName?', function(req, res, next) {
-  console.log("Inside GET", req);
-  let commits = '';
+  //console.log("Inside POST", req);
+  let comments = '';
+  let message='';
   let username = req.body.username;
   let repoName = req.body.repoName;
   let options = {
@@ -33,15 +32,25 @@ router.post('/:username?/:repoName?', function(req, res, next) {
         'Content-Type': 'application/json; charset=utf-8'}
   };
   request(options, function (error, response, body) {
-    //console.log('+++ filename: commits.js functionName: get callback expected to see ', body);
+    //console.log('+++ filename: comments.js functionName: get callback expected to see ', body);
     if (error) throw new Error(error);
     comments = JSON.parse(body);
     //console.log(body);
     //console.log('typeof \n', typeof body)
     //res.send(body);
+    console.log('comments ', comments)
+    if(comments.length === 0) {
+      console.log("Not Found");
+      message = 'No Comments Fdound';
+    } else {
+      let plural = comments.length > 1 ? 's':'';
+      message = comments.length + ' comment' + plural + ' found';
+    }
+
     res.render('comments', {
+      message: message,
       title: 'Comments',
-      commits: comments,
+      comments: comments,
       username: username,
       repoName: repoName
     });
