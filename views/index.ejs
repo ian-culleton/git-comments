@@ -6,6 +6,11 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p><%= title %></p>
+    <form method="post" action="/comments">
+      <input type="text" name="username" id="username">
+      <input type="text" name="repoName" id="repoName">
+      <input type="submit">
+    </form>
   </body>
 </html>

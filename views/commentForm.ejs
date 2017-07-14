@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+<body>
+<p>Welcome to <%= title %></p>
+<div><form method="post" action="/comments">
+    <input type="text" name="username" id="username">
+    <input type="text" name="repoName" id="repoName">
+    <input type="submit">
+</form>
+</div>
+</body>
+</html>
