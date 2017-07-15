@@ -1,24 +1,29 @@
-<form method="post" action="/comments" id="commentForm">
+<form method="post" action="/comments" id="commentForm" onsubmit="validateForm()">
+    <!--<div class="mdc-form-field">-->
+        <!--<div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">-->
+            <!--<input id="username" name="username" type="text" class="mdc-textfield__input" value="<%= username %>" required>-->
+            <!--<label for="username" class="mdc-textfield__label">-->
+                <!--GitHub Org or User-->
+            <!--</label>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="mdc-form-field">-->
+        <!--<div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">-->
+            <!--<input id="repoName" name="repoName" type="text" class="mdc-textfield__input" value="<%= repoName %>" required>-->
+            <!--<label for="repoName" class="mdc-textfield__label">-->
+                <!--GitHub Repo Name-->
+            <!--</label>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<span> -or- </span>-->
     <div class="mdc-form-field">
         <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-            <input id="username" name="username" type="text" class="mdc-textfield__input" value="<%= username %>">
-            <label for="username" class="mdc-textfield__label">
-                GitHub Org or User
-            </label>
-        </div>
-    </div>
-    <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-            <input id="repoName" name="repoName" type="text" class="mdc-textfield__input" value="<%= repoName %>">
-            <label for="repoName" class="mdc-textfield__label">
-                GitHub Repo Name
-            </label>
-        </div>
-    </div>
-    <span> -or- </span>
-    <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-            <input id="repoURL" name="repoUrl" type="text" class="mdc-textfield__input" value="<%= repoUrl %>">
+            <input id="repoURL" name="repoURL" type="url" class="mdc-textfield__input" value="<%= repoURL %>"
+                   required
+                   pattern="https:\/\/github.com\/[A-Za-z0-9\-]*\/[A-Za-z0-9\-]*"
+                   title="please enter a valid github repo in the format of https://github.com/<org/user>/<repo>"
+                   size="60"
+            >
             <label for="repoURL" class="mdc-textfield__label">
                 GitHub Repo URL
             </label>

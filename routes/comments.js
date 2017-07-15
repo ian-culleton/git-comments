@@ -19,11 +19,11 @@ router.get('/', function(req, res, next) {
 /* post comments listing. */
 router.post('/:username?/:repoName?', function(req, res, next) {
   //console.log("Inside POST", req);
-  let repoUrl = req.body.repoUrl || '';
+  let repoURL = req.body.repoURL || '';
   let username = '';
   let repoName = '';
-  if(req.body.repoUrl) {
-    const myURL = new URL(req.body.repoUrl);
+  if(req.body.repoURL) {
+    const myURL = new URL(req.body.repoURL);
     let myPaths = myURL.pathname.split('/');
     console.log('username from path ' + myPaths[1]);
     console.log('repo from path ' + myPaths[2]);
@@ -53,8 +53,8 @@ router.post('/:username?/:repoName?', function(req, res, next) {
     //console.log(body);
     //console.log('typeof \n', typeof body)
     //res.send(body);
-    //console.log('comments ', comments)
-    if(comments.length === 0) {
+    console.log('comments ', comments)
+    if(comments.message === 'Not Found' || comments == undefined) {
       console.log("Not Found");
       message = 'No Comments Found';
     } else {
@@ -68,7 +68,7 @@ router.post('/:username?/:repoName?', function(req, res, next) {
       comments: comments,
       username: username,
       repoName: repoName,
-      repoUrl: repoUrl
+      repoURL: repoURL
     });
   });
 
