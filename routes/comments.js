@@ -41,9 +41,8 @@ router.post('/:username?/:repoName?', function(req, res, next) {
     method: 'GET',
     url: 'https://api.github.com/repos/' + username + '/' + repoName + '/comments',
     headers:
-      { 'postman-token': '0a5971e3-97fb-c661-29da-74d81882456b',
-        'cache-control': 'no-cache',
-        'User-Agent': 'jmichelin',
+      {'cache-control': 'no-cache',
+        'User-Agent': username,
         'Content-Type': 'application/json; charset=utf-8'}
   };
   request(options, function (error, response, body) {

@@ -521,7 +521,7 @@ describe('Kitchen Sink', function(){
     it('cy.document() - get the document object', function(){
 
       // https://on.cypress.io/api/document
-      cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
+      cy.document().should('have.property', 'charset').commentFormSubmit('eq', 'UTF-8')
     })
 
     it('cy.title() - get the title', function(){

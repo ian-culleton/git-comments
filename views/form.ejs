@@ -1,21 +1,4 @@
-<form method="post" action="/comments" id="commentForm" onsubmit="validateForm()">
-    <!--<div class="mdc-form-field">-->
-        <!--<div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">-->
-            <!--<input id="username" name="username" type="text" class="mdc-textfield__input" value="<%= username %>" required>-->
-            <!--<label for="username" class="mdc-textfield__label">-->
-                <!--GitHub Org or User-->
-            <!--</label>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="mdc-form-field">-->
-        <!--<div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">-->
-            <!--<input id="repoName" name="repoName" type="text" class="mdc-textfield__input" value="<%= repoName %>" required>-->
-            <!--<label for="repoName" class="mdc-textfield__label">-->
-                <!--GitHub Repo Name-->
-            <!--</label>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<span> -or- </span>-->
+<form method="post" action="/comments" id="commentForm">
     <div class="mdc-form-field">
         <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
             <input id="repoURL" name="repoURL" type="url" class="mdc-textfield__input" value="<%= repoURL %>"
@@ -30,6 +13,7 @@
         </div>
     </div>
     <button type="submit"
+            id="commentFormSubmit"
             class="mdc-button
                        mdc-button--raised
                        mdc-button--primary
