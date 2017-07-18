@@ -129,6 +129,7 @@ router.post('/:username?/:repoName?', function (req, res, next) {
     //res.send(body);
     console.log('comments length ', comments.length)
     if (comments.message === 'Not Found' || comments == undefined) {
+
       console.log("Not Found");
       message = 'No Comments Found';
     } else {
