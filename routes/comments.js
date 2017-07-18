@@ -50,10 +50,10 @@ router.post('/:username?/:repoName?', function(req, res, next) {
     //console.log('+++ filename: comments.js functionName: get callback expected to see ', body);
     if (error) throw new Error(error);
     comments = JSON.parse(body);
-    //console.log(body);
-    //console.log('typeof \n', typeof body)
-    //res.send(body);
-    //console.log('comments ', comments)
+    // console.log(body);
+    // console.log('typeof \n', typeof body)
+    // res.send(body);
+    // console.log('comments ', comments)
     if(comments.length === 0) {
       console.log("Not Found");
       message = 'No Comments Found';
