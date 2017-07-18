@@ -25,8 +25,8 @@ router.post('/:username?/:repoName?', function(req, res, next) {
   if(req.body.repoURL) {
     const myURL = new URL(req.body.repoURL);
     let myPaths = myURL.pathname.split('/');
-    console.log('username from path ' + myPaths[1]);
-    console.log('repo from path ' + myPaths[2]);
+    //console.log('username from path ' + myPaths[1]);
+    //console.log('repo from path ' + myPaths[2]);
     username = myPaths[1];
     repoName = myPaths[2];
   } else {
@@ -52,7 +52,7 @@ router.post('/:username?/:repoName?', function(req, res, next) {
     //console.log(body);
     //console.log('typeof \n', typeof body)
     //res.send(body);
-    console.log('comments ', comments)
+    //console.log('comments ', comments)
     if(comments.message === 'Not Found' || comments == undefined) {
       console.log("Not Found");
       message = 'No Comments Found';
