@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# Video Files
+*.mp4
+/bin/db.config.js
