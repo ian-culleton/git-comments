@@ -59,3 +59,4 @@ typings/
 
 # Video Files
 *.mp4
+/bin/db.config.js
