@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html class="mdc-typography">
+<html>
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet"
-          href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <style>
-        :root {
-            --mdc-theme-primary: #0e4ead;
+      <style>
+
+        .centered {
+          display: flex;
+          justify-content: center;
         }
-        .mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--primary::before,
-        .mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--primary::after {
-            background-color: rgba(255, 255, 255, .2);
+
+        .blue-primary {
+          background-color: #5841DA;
+          color: #eee;
         }
+
+        .blue-tint-1 {
+          background-color: #806EE5;
+        }
+
+        .blue-tint-2 {
+          background-color: #BAB0F3;
+        }
+
+
 
         #greeting-form > button {
             margin-top: 8px;

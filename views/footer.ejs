@@ -1,12 +1,24 @@
 </main>
-<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<script>mdc.autoInit();</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <script>mdc.autoInit();</script> -->
 <script
         src="https://code.jquery.com/jquery-3.2.1.js"
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-
+   $(function() {
+     $('.collapsed').click(function(e) {
+       let $clicked = $(e.currentTarget);
+       if(!$clicked.data('toggled')) {
+         $clicked.next().slideUp();
+         $clicked.data('toggled', true);
+       } else {
+         $clicked.next().slideDown();
+         $clicked.data('toggled', false);
+       }
+     })
+   })
 </script>
 </body>
 </html>

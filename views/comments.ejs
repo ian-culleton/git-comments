@@ -1,24 +1,15 @@
 <% include header.ejs %>
-<p>Welcome to <%= title %></p>
+<h1 class="centered">Welcome to <%= title %></h1>
 <% include form.ejs%>
-</div>
-<div>
-    <%= message %>
-    <% for(var i=0; i<comments.length; i++) {%>
-    <h3 class="mdc-list-group__subheader"><a href="<%= comments[i].html_url %>" target="_blank"><%= comments[i].id %></a></h3>
-        <ul class="mdc-list mdc-list--dense mdc-list--avatar-list">
-            <h2>  <img class="mdc-list-item__start-detail" src="<%= comments[i].user.avatar_url %>" />  <%= comments[i].user.login %></h2>
-            <li class="mdc-list-item">
-               <span class="mdc-list-item__text"> <%= comments[i].body %> </span>
-               <span class="mdc-list-item__text__secondary"> (at <%= comments[i].updated_at %> ) </span>
-            </li>
-            <li class="mdc-list-item__text__secondary">
-              <a href="<%= comments[i].html_url %>" >View this comment on GitHub</a>
-            </li>
-            <li class="mdc-list-item__text__secondary">PATH: <%= comments[i].path %></li>
-            <li class="mdc-list-item__text__secondary">Line/Position: <%= comments[i].line %>/<%= comments[i].position %></li>
-        </ul>
-    <hr class="mdc-list-divider">
-    <% } %>
+<h3 class="centered"><%= message %></h3>
+<hr/>
+<div class="container-fluid mx-auto">
+  <% for(var i=0; i<comments.length; i++) {%>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <% include comment.ejs %>
+      </div>
+    </div>
+  <% } %>
 </div>
 <% include footer.ejs%>
