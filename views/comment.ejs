@@ -1,0 +1,17 @@
+<div class="card" style="width: 50rem;">
+  <div class="collapsed card-header blue-primary" data-toggled="false">
+    <span> # <%= comments[i].id %></span>
+    <img class="img-thumbnail img-circle responsive" style="height: 5ch;" src="<%= comments[i].user.avatar_url %>" />
+    <span> <%= comments[i].user.login %></span>
+    <span class="glyphicon glyphicon-plus"></span>
+  </div>
+  <div class="expanded blue-tint-2 card-block bg-secondary">
+    <span class="card-text"> <%= comments[i].body %> </span>
+    <span class="text-muted"> (at <%= comments[i].updated_at %> ) </span>
+    <div>
+      <a class="card-link" href="<%= comments[i].html_url %>" >View this comment on GitHub</a>
+    </div>
+    <div class="card-text text-muted">PATH: <%= comments[i].path %></div>
+    <div class="card-text text-muted">Line/Position: <%= comments[i].line %>/<%= comments[i].position %></div>
+  </div>
+</div>
